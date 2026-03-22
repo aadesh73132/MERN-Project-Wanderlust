@@ -2,6 +2,7 @@ if(process.env.NODE_ENV != "production") {
 require('dotenv').config() 
 
 }
+const isProduction = process.env.NODE_ENV === "production";
 // console.log(process.env.SECRET)
 
 const express = require("express");
@@ -46,6 +47,8 @@ async function main() {
 app.set("view engine", "ejs");
 app.set("views",path.join(__dirname,"views"));
 
+
+
 //taki hamara sara data jo request me aaraha h wo parse ho paye
 app.use(express.urlencoded({extended:true}));
 
@@ -67,6 +70,8 @@ const store = MongoStore.create({
 store.on("error" ,(err) => {
     console.log("ERROR in MONGO SESSION STORE", err);
 });
+
+app.set("trust proxy", 1);
 
 //making session
 const sessionOptions = {
