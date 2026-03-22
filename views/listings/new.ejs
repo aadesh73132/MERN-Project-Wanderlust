@@ -1,0 +1,69 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="row">
+        <div class="col-8 offset-2">
+
+            <body><br><br>
+
+
+                <h3>Create a new Listing </h3>
+                <br>
+                <form action="/listings" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="listing[title]" placeholder="Enter a title" class="form-control" required/> <!-- required means this field is mandatory to fill -->
+                        <div class="valid-feedback">Title looks good !</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="listing[description]" class="form-control" required></textarea> <!-- required means this field is mandatory to fill -->
+                        <div class="invalid-feedback">Please enter a description </div>    
+                    </div>
+
+                    <!-- <div class="mb-3">
+                        <label for="Image" class="form-label">Image Link</label>
+                        <input type="text" name="listing[image]" placeholder="enter a image url/link"
+                            class="form-control">
+                    </div> -->
+
+                    <div class="mb-3">
+                        <label for="Image" class="form-label">Upload Listing Image</label>
+                        <input type="file" name="listing[image]" placeholder="enter a image url/link"
+                            class="form-control">
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <label for="Price" class="form-label">Price</label>
+                            <!-- type="number" -->
+                            <input name="listing[price]" placeholder="enter a placeholder"
+                                class="form-control" required> <!-- required means this field is mandatory to fill -->
+                            
+                            <div class="invalid-feedback">Please enter valid price</div>    
+                        </div>
+
+                        <div class="mb-3 col-md-8">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" name="listing[country]" placeholder="enter a country name"
+                                class="form-control" required>  <!-- required means this field is mandatory to fill -->
+                            
+                            <div class="invalid-feedback">Please enter the country name</div>        
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="location" class="form-label">location</label>
+                        <input type="text" name="listing[location]" placeholder="enter a location" class="form-control" required> <!-- required means this field is mandatory to fill -->
+
+                        <div class="invalid-feedback">Please enter the location</div>    
+                    </div>
+
+                    <button class="btn btn-dark add-btn">Add</button>
+                    <br>
+                    <br>
+                </form>
+
+            </body>
+        </div>
+    </div>
